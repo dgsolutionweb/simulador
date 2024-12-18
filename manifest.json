@@ -1,0 +1,21 @@
+{
+  "name": "Alfa Simulador",
+  "short_name": "Alfa Sim",
+  "description": "Simulador de pagamentos e parcelamentos",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4299e1",
+  "icons": [
+    {
+      "src": "/alpha.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "orientation": "portrait",
+  "categories": ["finance", "utilities"],
+  "lang": "pt-BR",
+  "dir": "ltr"
+} 
