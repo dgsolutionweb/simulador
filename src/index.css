@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Light theme */
+  --primary-color: #4299e1;
+  --primary-gradient: linear-gradient(135deg, #4299e1 0%, #667eea 100%);
+  --success-color: #48bb78;
+  --success-gradient: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+  --error-gradient: linear-gradient(135deg, #f56565 0%, #c53030 100%);
+  --text-primary: #2d3748;
+  --text-secondary: #4a5568;
+  --bg-primary: #f7fafc;
+  --bg-secondary: #ffffff;
+  
+  /* Dark theme */
+  --dark-primary: #90cdf4;
+  --dark-gradient: linear-gradient(135deg, #4299e1 0%, #2b6cb0 100%);
+  --dark-bg-primary: #1a202c;
+  --dark-bg-secondary: #2d3748;
+  --dark-text-primary: #f7fafc;
+  --dark-text-secondary: #e2e8f0;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-dark-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  --shadow-dark-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  --shadow-dark-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+  
+  /* Border Radius */
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 16px;
+  --border-radius-xl: 20px;
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Font Families */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --font-display: 'Poppins', var(--font-primary);
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--text-primary);
+  line-height: 1.5;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f6f9fc 0%, #f1f5f9 100%);
+  background-attachment: fixed;
+  transition: all var(--transition-normal);
+}
+
+body[data-theme="dark"] {
+  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+  color: var(--dark-text-primary);
+}
+
+#root {
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Form Elements */
+input, button, select, textarea {
+  font-family: var(--font-primary);
+  transition: all var(--transition-fast);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* Modern scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: var(--border-radius-sm);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-gradient);
+  border-radius: var(--border-radius-sm);
+  border: 2px solid #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #3182ce 0%, #5a67d8 100%);
+}
+
+/* Dark mode scrollbar */
+@media (prefers-color-scheme: dark) {
+  ::-webkit-scrollbar-track {
+    background: var(--dark-bg-secondary);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--dark-gradient);
+    border: 2px solid var(--dark-bg-secondary);
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #4299e1 0%, #434190 100%);
+  }
+}
+
+/* Selection styling */
+::selection {
+  background: var(--primary-color);
+  color: white;
+  text-shadow: none;
+}
+
+/* Focus outline for accessibility */
+:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Smooth transitions for all interactive elements */
+a, button, input, select, textarea {
+  transition: all var(--transition-fast);
+}
+
+/* Better tap targets on mobile */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+  
+  button, input, select, textarea {
+    font-size: 16px !important;
+    min-height: 44px;
+  }
+  
+  #root {
+    padding: 16px;
+  }
+  
+  .container {
+    padding: 20px 16px;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Apply animations to elements */
+.fade-in {
+  animation: fadeIn var(--transition-normal);
+}
+
+.slide-in {
+  animation: slideIn var(--transition-normal);
+}
+
+.scale-in {
+  animation: scaleIn var(--transition-normal);
+}
+
+/* Print styles */
+@media print {
+  body {
+    background: none;
+    color: black;
+  }
+  
+  .no-print {
+    display: none;
+  }
+  
+  .container {
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  table {
+    break-inside: avoid;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
